@@ -1,5 +1,6 @@
 <?php
 require_once('file_functions.php');
+error_reporting(E_ERROR | E_PARSE);
 
 $filename = 'config.txt';
 
@@ -9,25 +10,23 @@ if(file_exists($filename)){
 
     //var_dump($fileArr);
     
-    $dataFile = [];
+    $dataConfigArr = null;
 
     foreach($fileArr as $key => $value){
         
         //echo $key . " - ". $value.'<br>';
         if(firstLine($value) !== '#' && firstLine($value) != null){
-            $arr = setData($value);
-            $data1 = explode('.',$arr[0]);
-            $arrVal = $arr[1];
-            $dataFile [] = arr_parent_leaves($dataFile,$data1,$arrVal);
+            $parsLine = setData($value);
+            $parseConfig = explode(".", $parsLine[0]);
+            $configLineValue = $parsLine[1];
+            $dataConfigArr = recursiveArr($dataConfigArr, 0, $parseConfig, $configLineValue);
         }
         
     }
 
-    var_dump($dataFile);
+    var_dump($dataConfigArr);
     
 }
 else echo "File doesn't exist";
-
-
 
 ?>
