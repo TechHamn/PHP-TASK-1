@@ -13,18 +13,10 @@ function setData($line){
     return $arrData;
 }
 
-function arr_parent_leaves($key,$keyArr,$value){
-    $nkey = $keyArr[0];
-    $nArr = array_slice($keyArr, 1);
-
-    if(intval(count($keyArr)) > 1){
-        $key[$nkey] = null;
-        arr_parent_leaves($key[$nkey], $nArr ,$value);
+function recursiveArr($arr, $step, $cArr, $value){
+        if($step == count($cArr)) return ((is_numeric($value)) ? $cArr=$value : $cArr=$value);
+        $arr[$cArr[$step]] = recursiveArr($arr[$cArr[$step]],++$step,$cArr,$value);
+        return $arr;
     }
-
-    $key[$nkey] = $value;
-    //var_dump($key);
-    return $key;
-}
 
 ?>
