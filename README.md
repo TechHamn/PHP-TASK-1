@@ -1,4 +1,6 @@
-Backend work sample configuration parser
+
+# Backend work sample configuration parser
+
 Delivery
 
 Work in your own git and send us a link to your repo.
@@ -9,15 +11,24 @@ The assignment
 
 Given the file "config.txt", with the following content:
 
-# Main configuration file
+// Main configuration file
+
 db.host = "10.0.0.55"
+
 db.port = 3306
+
 db.name.internal = "db­01­internal.local" 
+
 db.name.external = "db­01.company.tld"
+
+
 
 cache.ttl = 3600
 
+
+
 debug.enabled = false
+
 ##### NOTE: keep the connection timeout low cache.connection.timeout = 3
 
 Create a function that reads & converts the above file into a multi­dimensional array. The parser should be able to handle unlimited numbers of levels in the config.
