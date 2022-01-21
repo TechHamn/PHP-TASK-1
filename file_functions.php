@@ -1,6 +1,6 @@
 <?php
 /* 
-* This file includes functions related by reding text file and converting it to array 
+* This file includes functions related to reding text file and converting it to array 
 * Created By Zeinab Moghbel
 * On 2022-01-19
 */
